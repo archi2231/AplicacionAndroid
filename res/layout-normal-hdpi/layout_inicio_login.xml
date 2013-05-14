@@ -1,0 +1,538 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/scrollView1"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/appbody" >
+
+    <LinearLayout
+        android:id="@+id/layout_base_login"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="fill_vertical|fill_horizontal|fill"
+        android:background="#ffffff"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/txt_bienvenido1"
+            android:layout_width="173dp"
+            android:layout_height="fill_parent"
+            android:layout_marginBottom="2dp"
+            android:layout_marginLeft="85dp"
+            android:layout_marginRight="40dp"
+            android:layout_marginTop="10dp"
+            android:shadowColor="#2a0606"
+            android:shadowDx="1"
+            android:shadowDy="1"
+            android:shadowRadius="1.5"
+            android:text="Mi Cuenta Infonavit"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="#000000"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+		<TextView
+		    android:id="@+id/txt_bienvenido2"
+		    android:layout_width="wrap_content"
+		    android:layout_height="fill_parent"
+		    android:layout_marginBottom="10dp"
+		    android:layout_marginLeft="125dp"
+		    android:layout_marginRight="50dp"
+		    android:shadowColor="#2a0606"
+		    android:shadowDx="1"
+		    android:shadowDy="1"
+		    android:shadowRadius="1.5"
+		    android:text="Bienvenido"
+		    android:textAppearance="?android:attr/textAppearanceMedium"
+		    android:textColor="#000000"
+		    android:textSize="15sp" />
+
+        <EditText
+            android:id="@+id/txt_login_usuario"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="11dp"
+            android:layout_marginRight="11dp"
+            android:background="@drawable/login_1"
+            android:ems="10"
+            android:hint="Usuario"
+            android:inputType="textPersonName"
+            android:paddingLeft="11dp" >
+
+            <requestFocus />
+            
+        </EditText>
+
+        <EditText
+            android:id="@+id/txt_login_password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="11dp"
+            android:layout_marginRight="11dp"
+            android:background="@drawable/login_2"
+            android:ems="10"
+            android:hint="Contraseña"
+            android:inputType="textPassword"
+            android:paddingLeft="11dp" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:layout_marginLeft="11dp"
+            android:layout_marginRight="11dp"
+            android:background="@drawable/login_3" >
+
+            <ToggleButton
+                android:id="@+id/swt_recordar_acceso"
+                style="@style/Toggle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="5dp" />
+
+            <TextView
+                android:id="@+id/txt_recordar_acceso"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:text="Recordar acceso"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="#000000"
+                android:textSize="15sp" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
+            <TextView
+                android:id="@+id/lbl_info_no_registro"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_marginLeft="11dp"
+                android:linksClickable="true"
+                android:text="Si no te has registrado"
+                android:textColor="#d92525"
+                android:textSize="10sp" />
+            
+            <TextView
+                android:id="@+id/lbl_info_olvidaste_contrasenia"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginLeft="0dp"
+                android:layout_marginRight="11dp"
+                android:linksClickable="true"
+                android:text="¿Olvidaste tu usuario o contraseña?"
+                android:textColor="#d92525"
+                android:textSize="10sp" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
+            <TextView
+                android:id="@+id/lbl_info_activar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_marginBottom="10dp"
+                android:layout_marginLeft="11dp"
+                android:layout_marginTop="10dp"
+                android:autoLink="web"
+                android:text="Hazlo aquí"
+                android:textColor="#d92525"
+                android:textSize="13sp" />
+            
+            <TextView
+                android:id="@+id/lbl_info_recuperar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginBottom="10dp"
+                android:layout_marginLeft="0dp"
+                android:layout_marginRight="11dp"
+                android:layout_marginTop="10dp"
+                android:autoLink="web"
+                android:text="Recuperar"
+                android:textColor="#d92525"
+                android:textSize="13sp" />
+
+        </RelativeLayout>
+        
+        <Button
+            android:id="@+id/btn_login_guardar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="11dp"
+            android:layout_marginLeft="11dp"
+            android:layout_marginRight="11dp"
+            android:layout_marginTop="11dp"
+            android:background="@drawable/selector_btn_entrar"
+            android:shadowColor="#2a0606"
+            android:shadowDx="1"
+            android:shadowDy="1"
+            android:shadowRadius="1.5"
+            android:text="Entrar"
+            android:textColor="#ffffff"
+            android:textSize="23sp"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/appbody"
+            android:orientation="vertical" >
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:layout_marginLeft="11dp"
+                android:layout_marginRight="11dp"
+                android:layout_marginTop="11dp" >
+
+                <ImageButton
+                    android:id="@+id/btn_pagos"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentBottom="true"
+                    android:background="@drawable/selector_row_body_pagos"
+                    android:clickable="true" />
+
+                <TextView
+                    android:id="@+id/txt_pago1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginBottom="3dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_toLeftOf="@+id/btn_expander_arrow"
+                    android:layout_toRightOf="@+id/row_img_action"
+                    android:gravity="center"
+                    android:shadowColor="#2a0606"
+                    android:shadowDx="1"
+                    android:shadowDy="1"
+                    android:shadowRadius="1.5"
+                    android:text="Opciones de pago"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:textColor="#ffffff"
+                    android:textSize="19sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/txt_pago2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignLeft="@+id/txt_pago1"
+                    android:layout_below="@+id/txt_pago1"
+                    android:layout_toLeftOf="@+id/btn_expander_arrow"
+                    android:gravity="center"
+                    android:shadowColor="#2a0606"
+                    android:shadowDx="1"
+                    android:shadowDy="1"
+                    android:shadowRadius="1.5"
+                    android:text="Consúltalas"
+                    android:textColor="#ffffff"
+                    android:textSize="11sp" />
+
+                <ImageView
+                    android:id="@+id/row_img_action"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginLeft="12dp"
+                    android:src="@drawable/icono_billete" />
+
+                <ImageView
+                    android:id="@+id/btn_expander_arrow"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginRight="16dp"
+                    android:background="@drawable/selector_expande_lista_arrow" />
+
+            </RelativeLayout>
+
+            <LinearLayout
+                android:id="@+id/listaExpandible"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="11dp"
+                android:layout_marginRight="11dp"
+                android:orientation="vertical" >
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" >
+
+                    <ImageButton
+                        android:id="@+id/btn_pagos_centros"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:background="@drawable/selector_row_internal" />
+
+                    <TextView
+                        android:id="@+id/txt_label_centrosdepago"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="10dp"
+                        android:layout_toLeftOf="@+id/imageView7"
+                        android:text="@string/centros"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:textColor="#000000"
+                        android:textSize="15sp" />
+
+                    <ImageView
+                        android:id="@+id/imageView7"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="11dp"
+                        android:src="@drawable/arrow_clic" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" >
+
+                    <ImageButton
+                        android:id="@+id/btn_pagos_bancos"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:background="@drawable/selector_row_internal" />
+
+                    <TextView
+                        android:id="@+id/txt_label_bancos"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="10dp"
+                        android:layout_toLeftOf="@+id/imageView8"
+                        android:text="@string/bancos"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:textColor="#000000"
+                        android:textSize="15sp" />
+
+                    <ImageView
+                        android:id="@+id/imageView8"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="11dp"
+                        android:src="@drawable/arrow_clic" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" >
+
+                    <ImageButton
+                        android:id="@+id/btn_pagos_tiendas"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:background="@drawable/selector_row_internal" />
+
+                    <ImageView
+                        android:id="@+id/imageView9"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="11dp"
+                        android:src="@drawable/arrow_clic" />
+
+                    <TextView
+                        android:id="@+id/txt_label_autoservicios"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="10dp"
+                        android:layout_toLeftOf="@+id/imageView9"
+                        android:text="@string/tiendas"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:textColor="#000000"
+                        android:textSize="15sp" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" >
+
+                    <ImageButton
+                        android:id="@+id/btn_pagos_estadosunidos"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:background="@drawable/selector_row_internal_ultimo" />
+
+                    <TextView
+                        android:id="@+id/txt_label_estadosunidos"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="10dp"
+                        android:layout_toLeftOf="@+id/imageView10"
+                        android:text="@string/estadosunidos"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:textColor="#000000"
+                        android:textSize="15sp" />
+
+                    <ImageView
+                        android:id="@+id/imageView10"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="11dp"
+                        android:src="@drawable/arrow_clic" />
+                </RelativeLayout>
+            </LinearLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="11dp"
+                android:layout_marginRight="11dp"
+                android:layout_marginTop="11dp" >
+
+                <ImageButton
+                    android:id="@+id/btn_oficinas"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/selector_row_body_atencion" />
+
+                <TextView
+                    android:id="@+id/txt_atncion1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginBottom="3dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_toRightOf="@+id/imageView2"
+                    android:gravity="center"
+                    android:shadowColor="#2a0606"
+                    android:shadowDx="1"
+                    android:shadowDy="1"
+                    android:shadowRadius="1.5"
+                    android:text="Oficinas de atención"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:textColor="#ffffff"
+                    android:textSize="19sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/txt_atencion2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignLeft="@+id/txt_atncion1"
+                    android:layout_alignParentRight="true"
+                    android:layout_below="@+id/txt_atncion1"
+                    android:gravity="center"
+                    android:shadowColor="#2a0606"
+                    android:shadowDx="1"
+                    android:shadowDy="1"
+                    android:shadowRadius="1.5"
+                    android:text="Ubicación y horarios"
+                    android:textColor="#ffffff"
+                    android:textSize="11sp" />
+
+                <ImageView
+                    android:id="@+id/imageView2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_marginLeft="11dp"
+                    android:src="@drawable/icono_oficinas" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="11dp" >
+
+                <ImageButton
+                    android:id="@+id/btn_infonatel"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/selector_row_body_infonatel" />
+
+                <TextView
+                    android:id="@+id/txt_infonatel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignLeft="@+id/txt_inonatel2"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginBottom="3dp"
+                    android:layout_marginTop="10dp"
+                    android:gravity="center"
+                    android:shadowColor="#2a0606"
+                    android:shadowDx="1"
+                    android:shadowDy="1"
+                    android:shadowRadius="1.5"
+                    android:text="Infonatel"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:textColor="#ffffff"
+                    android:textSize="19sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/txt_inonatel2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_below="@+id/txt_infonatel"
+                    android:layout_toRightOf="@+id/imageView3"
+                    android:gravity="center"
+                    android:shadowColor="#2a0606"
+                    android:shadowDx="1"
+                    android:shadowDy="1"
+                    android:shadowRadius="1.5"
+                    android:text="9171 5050 Cd. México o al 01 800008 3900"
+                    android:textColor="#ffffff"
+                    android:textSize="11sp" />
+
+                <ImageView
+                    android:id="@+id/imageView3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginLeft="16dp"
+                    android:src="@drawable/icono_infonatel" />
+
+            </RelativeLayout>
+        </LinearLayout>
+
+    </LinearLayout>
+
+</ScrollView>

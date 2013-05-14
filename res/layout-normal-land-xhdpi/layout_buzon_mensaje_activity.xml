@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/ScrollViewAhorros"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true" xmlns:app="http://schemas.android.com/apk/res/com.planetmedia.infonavit">
+    
+ <LinearLayout
+     android:layout_width="match_parent"
+     android:layout_height="wrap_content"
+     android:background="@color/hoverinternal"
+     android:orientation="vertical" >
+
+     <RelativeLayout
+         android:layout_width="match_parent"
+         android:layout_height="60dp"
+         android:background="@drawable/selector_row_body_atencion" >
+
+    <EditText
+         android:id="@+id/txt_filter_mensajes"
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:textAlignment="center"
+         android:layout_marginTop="7dp"
+         android:background="@drawable/barra_busqueda"
+         android:ems="10" >
+
+         <requestFocus />
+     </EditText>   
+     </RelativeLayout>
+     
+	<RelativeLayout
+         android:layout_width="match_parent"
+         android:layout_height="60dp"
+         android:background="@drawable/selector_row_body_atencion" >
+
+	<Button
+	    android:id="@+id/btn_mensajes_linea"
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+	    android:layout_marginLeft="0dp"
+	    android:layout_marginRight="215dp"
+	    android:layout_marginTop="5dp"
+	    android:background="@drawable/toggle_button_left_bgc"
+	    android:text="Mensajes en Linea"
+	    android:textSize="13sp"
+	    android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="#ffffff" />
+	    
+    <Button
+        android:id="@+id/btn_mensaje_guardados"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="215dp"
+        android:layout_marginRight="0dp"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/toggle_button_right"
+        android:text="Mensajes Gurdados"
+        android:textSize="13sp"
+	    android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="#ffffff" />
+         
+     </RelativeLayout>
+     
+	
+	
+	
+	
+	
+     
+	
+
+     
+     
+
+
+ </LinearLayout>
+
+</ScrollView>

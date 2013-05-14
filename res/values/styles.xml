@@ -1,0 +1,44 @@
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+
+    
+    <style name="AppBaseTheme" parent="android:Theme.Light">
+    </style>
+
+    <style name="AppTheme" parent="AppBaseTheme">
+    </style>
+    
+     <style name="CustomWindowTitleBackground">
+        <item name="android:background">#ffffffff</item>
+    </style>
+ 
+    <style name="CustomTheme" parent="android:Theme">
+        <item name="android:windowTitleSize">43dp</item>
+        <!--<item name="android:windowTitleBackgroundStyle">@style/CustomWindowTitleBackground</item>-->
+        <item name="android:windowTitleBackgroundStyle">@style/CustomWindowTitleBackground</item>
+        <!--<item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowBackground">@null</item>-->
+    </style>
+    
+    <style name="Toggle">    
+		<item name="android:background">@drawable/toggle_button_bgc</item>
+		<item name="android:textOn"></item>
+		<item name="android:textOff"></item>
+		<item name="android:disabledAlpha">?android:attr/disabledAlpha</item>
+		<!--<item name="android:layout_width">75px</item>
+		<item name="android:layout_height">34px</item>-->
+ 	</style>
+	
+     <style name="ToggleMapaLeft">    
+		<item name="android:background">@drawable/toggle_button_left_bgc</item>
+		<item name="android:textOn"></item>
+		<item name="android:textOff"></item>
+		<item name="android:disabledAlpha">?android:attr/disabledAlpha</item>
+ 	</style>
+ 	
+     <style name="ToggleMapaRight">    
+		<item name="android:background">@drawable/toggle_button_right_bgc</item>
+		<item name="android:textOn"></item>
+		<item name="android:textOff"></item>
+		<item name="android:disabledAlpha">?android:attr/disabledAlpha</item>
+ 	</style>
+</resources>

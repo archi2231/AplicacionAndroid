@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/scrollView1"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/appbody" >    
+   
+   <LinearLayout
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:layout_marginLeft="11dp"
+       android:layout_marginRight="11dp"
+       android:layout_marginTop="11dp" 
+       android:layout_marginBottom="11dp"
+       android:orientation="vertical">
+    
+       		<RelativeLayout
+       		    android:layout_width="match_parent"
+       		    android:layout_height="match_parent"
+       		    android:background="@color/appbody" >
+
+    			<ImageView
+    			    android:id="@+id/titulo_contacto"
+    			    android:layout_width="match_parent"
+    			    android:layout_height="wrap_content"
+    			    android:background="@drawable/btn_op_pago_desgloce"
+    			    android:text="Opciones de pago" />
+
+				<TextView
+				    android:id="@+id/txt_contacto"
+				    style="@attr/ttf_name"
+				    android:layout_width="wrap_content"
+				    android:layout_height="wrap_content"
+				    android:layout_alignParentLeft="true"
+				    android:layout_alignParentRight="true"
+				    android:layout_alignParentTop="true"
+				    android:layout_marginBottom="3dp"
+				    android:layout_marginTop="20dp"
+				    android:gravity="center"
+				    android:shadowColor="#2a0606"
+				    android:shadowDx="1"
+				    android:shadowDy="1"
+				    android:shadowRadius="1.5"
+				    android:text="Contacto"
+				    android:textAppearance="?android:attr/textAppearanceLarge"
+				    android:textColor="#ffffff"
+				    android:textStyle="bold" />
+
+				</RelativeLayout>
+    			
+    			
+				<RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            
+            
+            android:background="@drawable/login_1" >
+
+            <ToggleButton
+                android:id="@+id/swt_recordar_acceso"
+                style="@style/Toggle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="11dp" />
+
+            	<TextView
+            	    android:id="@+id/txt_login_password"
+            	    android:layout_width="match_parent"
+            	    android:layout_height="wrap_content"
+            	    android:layout_marginLeft="0dp"
+            	    android:layout_marginRight="120dp"
+            	    android:layout_marginTop="10dp"
+            	    android:hint="Recordar contraseña"
+            	    android:textSize="15sp" />
+
+        </RelativeLayout>
+        
+				<RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="11dp"
+            
+            android:background="@drawable/login_1" >
+
+            <Button
+				    android:id="@+id/btn_contacto_guardar"
+				    android:layout_width="match_parent"
+				    android:layout_height="30dp"
+				    android:layout_marginTop="8dp"
+				    android:layout_marginLeft="180dp"
+				    android:layout_marginRight="10dp"
+				    android:background="@drawable/btn_op_pago"
+				    
+				    android:text="Guardar"
+				    android:textColor="#ffffff"
+				    android:textSize="15sp"
+				    android:textStyle="bold" />
+
+            	<EditText
+            	android:id="@+id/txt_login_password"
+            	android:layout_width="match_parent"
+            	android:layout_height="wrap_content"
+	            android:layout_marginLeft="0dp"
+    	        android:layout_marginRight="150dp"
+        	    
+            	android:ems="10"
+            	android:hint="Contraseña"
+            	android:inputType="textPassword"
+            	android:paddingLeft="11dp" />
+
+        </RelativeLayout> 
+        
+		            
+								
+				<Button
+				    android:id="@+id/btn_contacto_guardar"
+				    android:layout_width="match_parent"
+				    android:layout_height="50dp"
+				    android:background="@drawable/btn_op_pago"
+				    android:shadowColor="#2a0606"
+				    android:shadowDx="1"
+				    android:shadowDy="1"
+				    android:shadowRadius="1.5"
+				    android:text="Recibir notificaciones"
+				    android:textColor="#ffffff"
+				    android:textSize="18sp"
+				    android:textStyle="bold" />
+				
+				<TextView
+				    android:id="@+id/txt_confirguracion"
+				    android:layout_width="match_parent"
+				    android:layout_height="wrap_content"
+				    android:layout_marginLeft="0dp"
+				    android:layout_marginRight="0dp"
+				    android:layout_marginTop="10dp"
+				    android:hint="Presionalo si quieres que tus notificaciones se envien a este celular"
+				    android:textColor="@color/labelcolor"
+				    android:textSize="10sp"
+				    android:textAlignment="gravity"
+				     />
+							
+	</LinearLayout>
+	
+   
+
+</ScrollView>

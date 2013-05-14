@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@drawable/selector_list_divider"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="11dp"
+        android:layout_weight="1.41"
+        android:background="@drawable/selector_list_divider"
+        android:orientation="vertical" >
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/expandable_body_item"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/selector_row_body_pagos"
+        android:orientation="vertical" >
+
+        <ImageView
+            android:id="@+id/row_img_action"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:src="@drawable/selector_expande_lista_arrow" />
+
+        <TextView
+            android:id="@+id/txt_descripcion"
+            android:layout_width="234dp"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toLeftOf="@+id/row_img_action"
+            android:gravity="center"
+            android:text="Large Text"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    </RelativeLayout>
+
+</LinearLayout>

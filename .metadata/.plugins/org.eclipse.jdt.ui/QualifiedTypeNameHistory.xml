@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="com.planetmedia.infonavit.EstadoDeCuenta.IFREAReestructura"/>
+<fullyQualifiedTypeName name="com.planetmedia.infonavit.EstadoDeCuenta.IFROAReestructura"/>
+<fullyQualifiedTypeName name="com.planetmedia.infonavit.EstadoDeCuenta.IFREAR40"/>
+<fullyQualifiedTypeName name="com.planetmedia.infonavit.EstadoDeCuenta.IFROAR40"/>
+<fullyQualifiedTypeName name="com.planetmedia.infonavit.EstadoDeCuenta.IFREAR40Reestructura"/>
+<fullyQualifiedTypeName name="com.planetmedia.infonavit.EstadoDeCuenta.IFROAR40Reestructura"/>
+<fullyQualifiedTypeName name="com.planetmedia.infonavit.EstadoDeCuenta.IFREANormal"/>
+<fullyQualifiedTypeName name="com.planetmedia.infonavit.EstadoDeCuenta.IFEstadoDeCuentaGenerico"/>
+<fullyQualifiedTypeName name="java.lang.StringBuilder"/>
+<fullyQualifiedTypeName name="java.lang.String"/>
+<fullyQualifiedTypeName name="com.planetmedia.infonavit.EstadoDeCuenta.IFROANormal"/>
+<fullyQualifiedTypeName name="com.planetmedia.infonavit.EstadoDeCuenta.IFReestructuraGenerico"/>
+<fullyQualifiedTypeName name="com.planetmedia.infonavit.EstadoDeCuenta.IFR40Generico"/>
+<fullyQualifiedTypeName name="com.planetmedia.infonavit.datamodel.dao.EstadoCuentaDAO"/>
+<fullyQualifiedTypeName name="android.content.Intent"/>
+<fullyQualifiedTypeName name="com.planetmedia.infonavit.MainActivity"/>
+<fullyQualifiedTypeName name="com.planetmedia.infonavit.datamodel.dto.UsuarioDTO"/>
+<fullyQualifiedTypeName name="com.planetmedia.infonavit.datamodel.dao.UsuarioDAO"/>
+<fullyQualifiedTypeName name="java.lang.Exception"/>
+<fullyQualifiedTypeName name="java.lang.Thread"/>
+</qualifiedTypeNameHistroy>

@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/ScrollView1"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/appbody"
+    android:fillViewport="true" xmlns:app="http://schemas.android.com/apk/res/com.planetmedia.infonavit">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="22dp"
+        android:orientation="vertical" >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="11dp"
+            android:layout_marginRight="11dp"
+            android:layout_marginTop="11dp" >
+
+            <ImageButton
+                android:id="@+id/btn_pagos_head"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/btn_op_pago_desgloce"
+                android:clickable="true" />
+
+            <com.planetmedia.infonavit.utils.MyTextView
+                android:id="@+id/textView1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:text="Tiendas de autoservicio"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                app:ttf_name="eurostile.ttf" />
+            
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="11dp"
+            android:layout_marginRight="11dp"
+            android:background="@drawable/generico_txt_over_20" >
+
+            <com.planetmedia.infonavit.utils.MyTextView
+                android:id="@+id/textView2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:layout_margin="11dp"
+                android:text="@string/tiendas_subtitulo"
+                android:textColor="@color/labelcolor"
+                app:ttf_name="eurostile.ttf" />
+        </RelativeLayout>
+
+        <TableRow
+            android:id="@+id/tableRow1"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginLeft="11dp"
+            android:layout_marginRight="11dp"
+            android:background="@drawable/generico_txt_over_20"
+            android:fitsSystemWindows="true" >
+
+            <ImageView
+                android:id="@+id/imageView1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+               
+                android:src="@drawable/tienda_elektra" />
+
+            <ImageView
+                android:id="@+id/imageView2"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:src="@drawable/tienda_comercial" />
+
+            <ImageView
+                android:id="@+id/imageView3"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:cropToPadding="true"
+                android:src="@drawable/tienda_soriana" />
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/tableRow2"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginLeft="11dp"
+            android:layout_marginRight="11dp"
+            android:background="@drawable/generico_txt_over_20" >
+
+            <ImageView
+                android:id="@+id/imageView4"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:src="@drawable/tienda_benavides" />
+
+            <ImageView
+                android:id="@+id/imageView5"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:src="@drawable/tienda_chedraui" />
+
+            <ImageView
+                android:id="@+id/imageView6"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:src="@drawable/tienda_muebles_america" />
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/tableRow3"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginLeft="11dp"
+            android:layout_marginRight="11dp"
+            android:background="@drawable/generico_txt_over_20" >
+
+            <ImageView
+                android:id="@+id/imageView7"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:src="@drawable/tienda_farmapronto" />
+
+            <ImageView
+                android:id="@+id/imageView8"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:src="@drawable/tienda_famsa" />
+
+            <ImageView
+                android:id="@+id/imageView9"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:src="@drawable/tienda_fahorro" />
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/tableRow4"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginLeft="11dp"
+            android:layout_marginRight="11dp"
+            android:background="@drawable/generico_txt_over_20" >
+
+            <ImageView
+                android:id="@+id/imageView10"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="25dp"
+                android:src="@drawable/tienda_super_bara" />
+
+            <ImageView
+                android:id="@+id/imageView11"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="45dp"
+                android:layout_marginTop="0dp"
+                android:src="@drawable/tienda_oxxo" />
+        </TableRow>
+
+        <LinearLayout
+            android:id="@+id/row_info_banamex"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="22dp"
+            android:layout_marginLeft="11dp"
+            android:layout_marginRight="11dp"
+            android:background="@drawable/generico_txt_over_3"
+            android:orientation="vertical" >
+
+            <com.planetmedia.infonavit.utils.MyTextView
+                android:id="@+id/textView4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="11dp"
+                android:layout_marginRight="11dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:text="@string/tiendas_titulo1"
+                android:textColor="@color/labelcolor"
+                app:ttf_name="eurostile.ttf" />
+
+            
+
+        </LinearLayout>
+    </LinearLayout>
+
+</ScrollView>

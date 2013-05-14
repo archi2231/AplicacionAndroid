@@ -1,0 +1,502 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res/com.planetmedia.infonavit"
+    android:id="@+id/ScrollView1"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/appbody"
+    android:fillViewport="true" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="22dp"
+        android:orientation="vertical" >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="11dp"
+            android:layout_marginRight="11dp"
+            android:layout_marginTop="11dp" >
+
+            <ImageButton
+                android:id="@+id/btn_pagos_head"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/btn_op_pago_desgloce"
+                android:clickable="true" />
+
+            <com.planetmedia.infonavit.utils.MyTextView
+                android:id="@+id/textView1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:text="Bancos"
+                android:textAppearance="?android:attr/textAppearanceLarge" 
+                app:ttf_name="eurostile.ttf" />
+
+        </RelativeLayout>
+        
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="11dp"
+            android:layout_marginRight="11dp" >
+
+            <com.planetmedia.infonavit.utils.ButtonArrow
+                android:id="@+id/btn_pagos_banamex"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/selector_row_internal"
+                android:clickable="true"
+                app:ttf_name="eurostile.ttf" />
+
+            <ImageButton
+                android:id="@+id/arrow_expander1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="25dp"
+                android:background="@drawable/selector_expander_lista_arrow2" />
+
+            <ImageView
+                android:id="@+id/imageView1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="22dp"
+                android:src="@drawable/logo_anamex" />
+
+        </RelativeLayout>
+
+<LinearLayout
+    android:id="@+id/row_info_banamex"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="11dp"
+    android:layout_marginRight="11dp"
+    android:orientation="vertical"
+    android:textAlignment="center" >
+
+    <com.planetmedia.infonavit.utils.MyTextView
+        android:id="@+id/textView4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/standar_seis_over_2"
+        android:padding="11dp"
+        android:text="@string/banco_banamex"
+        
+        android:gravity="center_vertical|center_horizontal"
+        android:textColor="@color/labelcolor"
+        app:ttf_name="eurostile.ttf" />
+		
+        </LinearLayout>
+
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="11dp"
+    android:layout_marginRight="11dp" >
+
+            <com.planetmedia.infonavit.utils.ButtonArrow
+                android:id="@+id/btn_pagos_banco_azteca"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/selector_row_internal"
+                android:clickable="true" />
+
+            <ImageButton
+                android:id="@+id/arrow_expander2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="24dp"
+                android:background="@drawable/selector_expander_lista_arrow2" />
+
+            <ImageView
+                android:id="@+id/imageView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="22dp"
+                android:src="@drawable/logo_banco_azteca" />
+
+        </RelativeLayout>
+
+		<LinearLayout
+		    android:id="@+id/row_info_banco_azteca"
+		    android:layout_width="match_parent"
+		    android:layout_height="wrap_content"
+		    android:layout_marginLeft="11dp"
+		    android:layout_marginRight="11dp"
+		    android:orientation="vertical" >
+
+			<com.planetmedia.infonavit.utils.MyTextView
+			    android:id="@+id/textView5"
+			    android:layout_width="match_parent"
+			    android:layout_height="wrap_content"
+			    android:background="@drawable/standar_seis_over_2"
+			    android:padding="11dp"
+			    android:text="@string/banco_banco_azteca"
+			    android:textAlignment="center"
+			    android:gravity="center_vertical|center_horizontal"
+			    android:textColor="@color/labelcolor"
+			    android:textColorHint="@color/appbody"
+			    app:ttf_name="eurostile.ttf" />
+
+        </LinearLayout>
+        
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="11dp"
+    android:layout_marginRight="11dp" >
+
+            <com.planetmedia.infonavit.utils.ButtonArrow
+                android:id="@+id/btn_pagos_banco_banorte"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/selector_row_internal"
+                android:clickable="true" />
+
+            <ImageButton
+                android:id="@+id/arrow_expander3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="24dp"
+                android:background="@drawable/selector_expander_lista_arrow2" />
+
+            <ImageView
+                android:id="@+id/imageView3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="22dp"
+                android:src="@drawable/logo_banorte" />
+
+        </RelativeLayout>
+
+		<LinearLayout
+		    android:id="@+id/row_info_banco_banorte"
+		    android:layout_width="match_parent"
+		    android:layout_height="wrap_content"
+		    android:layout_marginLeft="11dp"
+		    android:layout_marginRight="11dp"
+		    android:orientation="vertical" >
+
+			<com.planetmedia.infonavit.utils.MyTextView
+			    android:id="@+id/textView7"
+			    android:layout_width="match_parent"
+			    android:layout_height="wrap_content"
+			    android:background="@drawable/standar_seis_over_2"
+			    android:padding="11dp"
+			    android:text="@string/banco_banorte"
+			    android:textAlignment="center"
+			    android:textColor="@color/labelcolor"
+			    android:textColorHint="@color/appbody"
+			    android:gravity="center_vertical|center_horizontal"
+			    app:ttf_name="eurostile.ttf" />
+
+        </LinearLayout>
+        
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="11dp"
+    android:layout_marginRight="11dp" >
+
+            <com.planetmedia.infonavit.utils.ButtonArrow
+                android:id="@+id/btn_pagos_banco_bansefi"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/selector_row_internal"
+                android:clickable="true" />
+
+            <ImageButton
+                android:id="@+id/arrow_expander7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="24dp"
+                android:background="@drawable/selector_expander_lista_arrow2" />
+
+            <ImageView
+                android:id="@+id/imageView4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="22dp"
+                android:src="@drawable/bansefi" />
+
+        </RelativeLayout>
+
+		<LinearLayout
+		    android:id="@+id/row_info_banco_bansefi"
+		    android:layout_width="match_parent"
+		    android:layout_height="wrap_content"
+		    android:layout_marginLeft="11dp"
+		    android:layout_marginRight="11dp"
+		    android:orientation="vertical" >
+
+			<com.planetmedia.infonavit.utils.MyTextView
+			    android:id="@+id/textView13"
+			    android:layout_width="match_parent"
+			    android:layout_height="wrap_content"
+			    android:background="@drawable/standar_seis_over_2"
+			    android:padding="11dp"
+			    android:text="@string/banco_bansefi"
+			    android:textAlignment="center"
+			    android:gravity="center_vertical|center_horizontal"
+			    android:textColor="@color/labelcolor"
+			    android:textColorHint="@color/appbody"
+			    app:ttf_name="eurostile.ttf" />
+
+        </LinearLayout>
+        
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="11dp"
+    android:layout_marginRight="11dp" >
+
+            <com.planetmedia.infonavit.utils.ButtonArrow
+                android:id="@+id/btn_pagos_banco_bancomer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/selector_row_internal"
+                android:clickable="true" />
+
+            <ImageButton
+                android:id="@+id/arrow_expander5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="24dp"
+                android:background="@drawable/selector_expander_lista_arrow2" />
+
+            <ImageView
+                android:id="@+id/imageView5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="22dp"
+                android:src="@drawable/logo_bancomer" />
+
+        </RelativeLayout>
+
+		<LinearLayout
+		    android:id="@+id/row_info_banco_bancomer"
+		    android:layout_width="match_parent"
+		    android:layout_height="wrap_content"
+		    android:layout_marginLeft="11dp"
+		    android:layout_marginRight="11dp"
+		    android:orientation="vertical" >
+
+			<com.planetmedia.infonavit.utils.MyTextView
+			    android:id="@+id/textView10"
+			    android:layout_width="match_parent"
+			    android:layout_height="wrap_content"
+			    android:background="@drawable/standar_seis_over_2"
+			    android:padding="11dp"
+			    android:text="@string/banco_bancomer"
+			    android:textAlignment="center"
+			    android:gravity="center_vertical|center_horizontal"
+			    android:textColor="@color/labelcolor"
+			    android:textColorHint="@color/appbody"
+			    app:ttf_name="eurostile.ttf" />
+
+        </LinearLayout>
+		
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="11dp"
+    android:layout_marginRight="11dp" >
+
+            <com.planetmedia.infonavit.utils.ButtonArrow
+                android:id="@+id/btn_pagos_banco_hsbc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/selector_row_internal"
+                android:clickable="true" />
+
+            <ImageButton
+                android:id="@+id/arrow_expander8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="24dp"
+                android:background="@drawable/selector_expander_lista_arrow2" />
+
+            <ImageView
+                android:id="@+id/imageView8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="22dp"
+                android:src="@drawable/logo_hsbc" />
+
+        </RelativeLayout>
+
+		<LinearLayout
+		    android:id="@+id/row_info_banco_hsbc"
+		    android:layout_width="match_parent"
+		    android:layout_height="wrap_content"
+		    android:layout_marginLeft="11dp"
+		    android:layout_marginRight="11dp"
+		    android:orientation="vertical" >
+
+			<com.planetmedia.infonavit.utils.MyTextView
+			    android:id="@+id/textView15"
+			    android:layout_width="match_parent"
+			    android:layout_height="wrap_content"
+			    android:background="@drawable/standar_seis_over_2"
+			    android:padding="11dp"
+			    android:text="@string/banco_HSBC"
+			    android:textAlignment="center"
+			    android:gravity="center_vertical|center_horizontal"
+			    android:textColor="@color/labelcolor"
+			    android:textColorHint="@color/appbody"
+			    app:ttf_name="eurostile.ttf" />
+
+        </LinearLayout>
+								
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="11dp"
+    android:layout_marginRight="11dp" >
+
+            <com.planetmedia.infonavit.utils.ButtonArrow
+                android:id="@+id/btn_pagos_banco_santander"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/selector_row_internal"
+                android:clickable="true" />
+
+            <ImageButton
+                android:id="@+id/arrow_expander4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="24dp"
+                android:background="@drawable/selector_expander_lista_arrow2" />
+
+            <ImageView
+                android:id="@+id/imageView6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="22dp"
+                android:src="@drawable/logo_santander" />
+
+        </RelativeLayout>
+
+		<LinearLayout
+		    android:id="@+id/row_info_banco_santander"
+		    android:layout_width="match_parent"
+		    android:layout_height="wrap_content"
+		    android:layout_marginLeft="11dp"
+		    android:layout_marginRight="11dp"
+		    android:orientation="vertical" >
+
+			<com.planetmedia.infonavit.utils.MyTextView
+			    android:id="@+id/textView9"
+			    android:layout_width="match_parent"
+			    android:layout_height="wrap_content"
+			    android:background="@drawable/standar_seis_over_2"
+			    android:padding="11dp"
+			    android:text="@string/banco_santander"
+			    android:textAlignment="center"
+			    android:gravity="center_vertical|center_horizontal"
+			    android:textColor="@color/labelcolor"
+			    android:textColorHint="@color/appbody"
+			    app:ttf_name="eurostile.ttf" />
+
+        </LinearLayout>
+
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="11dp"
+    android:layout_marginRight="11dp" >
+
+            <com.planetmedia.infonavit.utils.ButtonArrow
+                android:id="@+id/btn_pagos_banco_scotiabank"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/selector_row_internal_ultimo"
+                android:clickable="true" />
+
+            <ImageButton
+                android:id="@+id/arrow_expander6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="24dp"
+                android:background="@drawable/selector_expander_lista_arrow2" />
+
+            <ImageView
+                android:id="@+id/imageView7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="22dp"
+                android:src="@drawable/logo_scotiabanck" />
+
+        </RelativeLayout>
+
+		<LinearLayout
+		    android:id="@+id/row_info_banco_scotiabanck"
+		    android:layout_width="match_parent"
+		    android:layout_height="wrap_content"
+		    android:layout_marginBottom="11dp"
+		    android:layout_marginLeft="11dp"
+		    android:layout_marginRight="11dp"
+		    android:orientation="vertical" >
+
+			<com.planetmedia.infonavit.utils.MyTextView
+			    android:id="@+id/textView11"
+			    android:layout_width="match_parent"
+			    android:layout_height="wrap_content"
+			    android:background="@drawable/standar_seis_over_2"
+			    android:padding="11dp"
+			    android:text="@string/banco_scotiabank"
+			    android:textColor="@color/labelcolor"
+			    android:textAlignment="center"
+			    android:gravity="center_vertical|center_horizontal"
+			    android:textColorHint="@color/appbody"
+			    app:ttf_name="eurostile.ttf" />
+
+        </LinearLayout>
+
+		<LinearLayout
+		    android:layout_width="match_parent"
+		    android:layout_height="wrap_content"
+		    android:layout_marginBottom="11dp"
+		    android:orientation="vertical" >
+
+		</LinearLayout>
+        		
+    </LinearLayout>
+
+</ScrollView>

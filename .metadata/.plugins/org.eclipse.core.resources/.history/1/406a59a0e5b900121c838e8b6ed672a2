@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/appbody"
+    android:orientation="vertical" >
+
+    <EditText
+        android:id="@+id/txt_filter_oficinas"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:maxLines="1"
+        android:layout_margin="5dp"
+        android:ems="10"
+        android:hint="Búsqueda" >
+        <requestFocus />
+    </EditText>
+
+    <LinearLayout
+        android:id="@+id/tableRow2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/head1"
+        android:orientation="horizontal" >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="11dp"
+            android:layout_marginTop="11dp"
+            android:layout_weight="1" >
+
+            <ImageButton
+                android:id="@+id/btn_mapa_pin"
+                android:layout_width="40dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_weight="1"
+                android:background="@drawable/selector_btn_mapa"
+                android:src="@drawable/btn_pin" />
+
+            <ToggleButton
+                android:id="@+id/btn_mapa_oficinas"
+                style="@style/ToggleMapaLeft"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@+id/btn_mapa_pin"
+                android:layout_weight="1"
+                android:checked="true"
+                android:textColor="@color/btn_interno"
+                android:textOff="Mapa"
+                android:textOn="Mapa" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1" >
+
+            <ImageButton
+                android:id="@+id/btn_mapa_mex"
+                android:layout_width="40dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_weight="1"
+                android:background="@drawable/selector_btn_mapa"
+                android:src="@drawable/btn_mexico" />
+
+            <ToggleButton
+                android:id="@+id/btn_lista_cercanas"
+                style="@style/ToggleMapaRight"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:layout_toLeftOf="@+id/btn_mapa_mex"
+                android:layout_weight="1"
+                android:text="ToggleButton"
+                android:textColor="@color/btn_interno"
+                android:textOff="Lista"
+                android:textOn="Lista" />
+        </RelativeLayout>
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <fragment
+            android:id="@+id/mapa"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            class="com.google.android.gms.maps.SupportMapFragment" />
+
+        <ScrollView
+            android:id="@+id/scrollListaOficinas"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:id="@+id/listaOficinas"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                
+                android:orientation="vertical" >
+
+                <!-- <EditText -->
+                <!-- android:layout_width="match_parent" -->
+                <!-- android:layout_height="wrap_content" -->
+                <!-- android:text="FOO"> -->
+                <!-- </EditText> -->
+            </LinearLayout>
+        </ScrollView>
+
+        <!-- <LinearLayout -->
+        <!-- android:id="@+id/layout_marcador_info" -->
+        <!-- android:layout_width="match_parent" -->
+        <!-- android:layout_height="wrap_content" -->
+        <!-- android:layout_alignParentBottom="true" -->
+        <!-- android:layout_centerHorizontal="true" -->
+        <!-- android:background="@color/appbody" -->
+        <!-- android:orientation="vertical" > -->
+        <!-- </LinearLayout> -->
+    </RelativeLayout>
+
+</LinearLayout>

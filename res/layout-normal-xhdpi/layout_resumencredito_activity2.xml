@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/ScrollViewResumen"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true" xmlns:app="http://schemas.android.com/apk/res/com.planetmedia.infonavit">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/appbody"
+        android:orientation="vertical" >
+
+        <com.planetmedia.infonavit.utils.MyTextView
+            android:id="@+id/txt_bienvenido1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="2dp"
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            android:shadowColor="#2a0606"
+            android:shadowDx="1"
+            android:shadowDy="1"
+            android:shadowRadius="1.5"
+            android:text="Mi Cuenta Infonavit"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="#000000"
+            android:textStyle="bold"
+            app:ttf_name="eurostile.ttf" />
+
+        <com.planetmedia.infonavit.utils.MyTextView
+            android:id="@+id/txt_bienvenido2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:gravity="center"
+            android:shadowColor="#2a0606"
+            android:shadowDx="1"
+            android:shadowDy="1"
+            android:shadowRadius="1.5"
+            android:text="Resumen de mi crédito"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="#000000"
+            app:ttf_name="eurostile.ttf" />
+
+        <com.planetmedia.infonavit.utils.MyTextView
+            android:id="@+id/txt_resumen_credito_nombre"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="11dp"
+            android:layout_marginRight="11dp"
+            android:layout_marginTop="11dp"
+            android:background="@drawable/generico_txt_over_1"
+            android:gravity="center"
+            android:padding="2dp"
+            android:text="Nombre"
+            android:textAppearance="?android:attr/textAppearance"
+            android:textColor="#000000"
+            app:ttf_name="eurostile.ttf" />
+
+        <com.planetmedia.infonavit.utils.MyTextView
+            android:id="@+id/txt_resumen_credito_numero"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="11dp"
+            android:layout_marginLeft="11dp"
+            android:layout_marginRight="11dp"
+            android:background="@drawable/generico_txt_over_3"
+            android:gravity="center"
+            android:padding="2dp"
+            android:text="Credito"
+            android:textAppearance="?android:attr/textAppearance"
+            android:textColor="#000000"
+            app:ttf_name="eurostile.ttf" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="11dp"
+            android:layout_marginRight="11dp"
+            android:layout_marginTop="11dp" >
+
+            <ImageButton
+                android:id="@+id/btn_pagos_head"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/selector_row_body_pagos"
+                android:clickable="true" />
+
+            <ImageView
+                android:id="@+id/btn_expander_arrow"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentTop="true"
+                android:background="@drawable/selector_expande_lista_arrow" />
+
+            <com.planetmedia.infonavit.utils.MyTextView
+                android:id="@+id/txt_pago1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:layout_toLeftOf="@+id/btn_expander_arrow"
+                android:gravity="center"
+                android:shadowColor="#2a0606"
+                android:shadowDx="1"
+                android:shadowDy="1"
+                android:shadowRadius="1.5"
+                android:text="El monto de mi deuda"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textColor="#ffffff"
+                android:textStyle="bold"
+                app:ttf_name="eurostile.ttf" />
+        </RelativeLayout>
+
+        
+        <LinearLayout
+            android:id="@+id/row_info_banamex"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="11dp"
+            android:layout_marginLeft="11dp"
+            android:layout_marginRight="11dp"
+            android:orientation="vertical" >
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="11dp"
+            android:layout_marginRight="11dp"
+            android:layout_marginTop="11dp" >
+
+            <ImageButton
+                android:id="@+id/btn_cuanto_pagar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/selector_row_body_pagos"
+                android:clickable="true" />
+
+            <ImageView
+                android:id="@+id/btn_expander_pago"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentTop="true"
+                android:background="@drawable/selector_expande_lista_arrow" />
+
+            <com.planetmedia.infonavit.utils.MyTextView
+                android:id="@+id/txt_debo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:layout_toLeftOf="@+id/btn_expander_pago"
+                android:gravity="center"
+                android:shadowColor="#2a0606"
+                android:shadowDx="1"
+                android:shadowDy="1"
+                android:shadowRadius="1.5"
+                android:text="¿Cómo y cúanto debo pagar?"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textColor="#ffffff"
+                android:textStyle="bold"
+                app:ttf_name="eurostile.ttf" />
+        </RelativeLayout>
+
+        <LinearLayout
+            android:id="@+id/listaExpandibleDeuda"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="11dp"
+            android:layout_marginLeft="11dp"
+            android:layout_marginRight="11dp"
+            android:orientation="vertical" >
+        </LinearLayout>
+    </LinearLayout>
+
+</ScrollView>

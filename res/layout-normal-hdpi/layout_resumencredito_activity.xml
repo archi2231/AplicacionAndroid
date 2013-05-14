@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/scrollView1"
+    android:layout_width="match_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/appbody"
+    android:fillViewport="true" xmlns:app="http://schemas.android.com/apk/res/com.planetmedia.infonavit">
+
+    <LinearLayout
+        android:id="@+id/container_resumen_credito"
+        android:layout_width="match_parent"
+        android:layout_height="fill_parent"
+        android:background="@color/appbody"
+        android:baselineAligned="true"
+        android:orientation="vertical" >
+
+        <com.planetmedia.infonavit.utils.MyTextView
+            android:id="@+id/txt_bienvenido1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="2dp"
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            android:shadowColor="#2a0606"
+            android:shadowDx="1"
+            android:shadowDy="1"
+            android:shadowRadius="1.5"
+            android:text="Mi Cuenta Infonavit"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="#000000"
+            android:textStyle="bold" 
+            app:ttf_name="eurostile.ttf"/>
+
+        <com.planetmedia.infonavit.utils.MyTextView
+            android:id="@+id/txt_bienvenido2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:gravity="center"
+            android:shadowColor="#2a0606"
+            android:shadowDx="1"
+            android:shadowDy="1"
+            android:shadowRadius="1.5"
+            android:text="Resumen de mi crédito"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="#000000" 
+            app:ttf_name="eurostile.ttf"/>
+
+        <com.planetmedia.infonavit.utils.MyTextView
+            android:id="@+id/txt_resumen_credito_nombre"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="11dp"
+            android:layout_marginRight="11dp"
+            android:layout_marginTop="11dp"
+            android:background="@drawable/generico_txt_over_1"
+            android:gravity="center"
+            android:padding="5dp"
+            android:text="Nombre"
+            android:textAppearance="?android:attr/textAppearance"
+            android:textColor="#000000"
+            app:ttf_name="eurostile.ttf" />
+
+        <com.planetmedia.infonavit.utils.MyTextView
+            android:id="@+id/txt_resumen_credito_numero"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="11dp"
+            android:layout_marginLeft="11dp"
+            android:layout_marginRight="11dp"
+            android:background="@drawable/generico_txt_over_3"
+            android:gravity="center"
+            android:padding="5dp"
+            android:text="Credito"
+            android:textAppearance="?android:attr/textAppearance"
+            android:textColor="#000000"
+            app:ttf_name="eurostile.ttf" />
+
+        <ExpandableListView
+            android:id="@+id/lista_resumen_credito"
+            android:layout_width="match_parent"
+            android:layout_height="fill_parent"
+            android:layout_marginBottom="11dp"
+            android:layout_marginLeft="11dp"
+            android:layout_marginRight="11dp"
+            android:layout_weight="5.04"
+            android:childDivider="@color/transparent"
+            android:divider="@color/transparent"
+            android:groupIndicator="@color/transparent"
+            android:smoothScrollbar="true" >
+        </ExpandableListView>
+    </LinearLayout>
+
+</ScrollView>

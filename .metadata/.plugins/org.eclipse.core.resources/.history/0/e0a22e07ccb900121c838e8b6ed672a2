@@ -1,0 +1,300 @@
+package com.planetmedia.infonavit.datamodel.dao;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import android.database.Cursor;
+import android.util.Log;
+
+import com.planetmedia.infonavit.EstadoDeCuenta.IFEstadoDeCuentaGenerico;
+import com.planetmedia.infonavit.EstadoDeCuenta.IFR40Generico;
+import com.planetmedia.infonavit.EstadoDeCuenta.IFREANormal;
+import com.planetmedia.infonavit.EstadoDeCuenta.IFREAR40;
+import com.planetmedia.infonavit.EstadoDeCuenta.IFREAR40Reestructura;
+import com.planetmedia.infonavit.EstadoDeCuenta.IFREAReestructura;
+import com.planetmedia.infonavit.EstadoDeCuenta.IFROANormal;
+import com.planetmedia.infonavit.EstadoDeCuenta.IFROAR40;
+import com.planetmedia.infonavit.EstadoDeCuenta.IFROAR40Reestructura;
+import com.planetmedia.infonavit.EstadoDeCuenta.IFROAReestructura;
+import com.planetmedia.infonavit.EstadoDeCuenta.IFReestructuraGenerico;
+import com.planetmedia.infonavit.datamodel.dto.UsuarioDTO;
+
+public class EstadoCuentaDAO extends GenericDAO {
+	
+
+	public EstadoCuentaDAO() {
+		super();
+		this.setNombreTabla("ESTADO_DE_CUENTA");
+	}
+
+public List<IFEstadoDeCuentaGenerico> getRegistros(){
+		
+		List<IFEstadoDeCuentaGenerico> lista = new ArrayList<IFEstadoDeCuentaGenerico>();
+		String query = construyeQuerySelect();
+		Cursor cursor = dataBase.rawQuery(query, null);
+		
+	    if(cursor.moveToFirst()){
+			do{
+				
+				IFEstadoDeCuentaGenerico estadoCuenta = null;
+				String tipoCuenta = cursor.getString(cursor.getColumnIndex("tipoDeCuenta"));
+				
+				if(tipoCuenta.equals("01")) { 
+					estadoCuenta = new IFREANormal();
+				} else if(tipoCuenta.equals("02")) { 
+					estadoCuenta = new IFROANormal();
+				} else if(tipoCuenta.equals("03")) { 
+					estadoCuenta = new IFREAReestructura();
+				} else if(tipoCuenta.equals("04")) { 
+					estadoCuenta = new IFROAReestructura();
+				} else if(tipoCuenta.equals("07")) { 
+					estadoCuenta = new IFREAR40();
+				} else if(tipoCuenta.equals("08")) { 
+					estadoCuenta = new IFROAR40();
+				} else if(tipoCuenta.equals("09")) { 
+					estadoCuenta = new IFREAR40Reestructura();
+				} else if(tipoCuenta.equals("10")) { 
+					estadoCuenta = new IFROAR40Reestructura();
+				}
+				
+				estadoCuenta = llenaEstadoCuenta(cursor,estadoCuenta);
+				
+				lista.add(estadoCuenta);
+				estadoCuenta = null;
+				
+			}while(cursor.moveToNext());
+	    }
+		
+		return lista;
+		
+	}
+	
+	private String construyeQuerySelect(){
+		StringBuilder campos = new StringBuilder("idEstadoDeCuenta, numBoletos, mensajeCartera, mensajeGeneral, periodo, tipoDeCuenta, nombreCliente, noCredito, pagoContratado, tasaInteresAnual, fechaOtorgamiento, noDeMensualidadesVencidas, nivelCumplimientoPago, montoVencido, saldoAnterior, saldoAnteriorVSM, ajustePeriodosAnteriores, ajustePeriodosAnterioresVSM, saldoAjustado, saldoAjustadoVSM, interesesPeriodo, interesesPeriodoVSM, comisionesOtrosCargos, comisionesOtrosCargosVSM, ultimoPago, ultimoPagoVSM, traspasosOtrosAbonos, traspasosOtrosAbonosVSM, saldoActualResumen, saldoActualVSMResumen"); 
+		
+		//Por si viene un REA
+		campos.append(", lineaDeCaptura");
+		
+		//Por si viene un ROA
+		campos.append(", pagoDeTuPatron, pagoDeTuPatronVSM");
+		
+		//Por si es un Reestructura
+		campos.append(", ultimoPagoInfonavit, ultimoPagoInfonavitVSM, saldoAcargoAcreditado, saldoAcargoAcreditadoVSM, saldoAcargoInfonavit, saldoAcargoInfonavitVSM, saldoActualReestructura, saldoActualReestructuraVSM");
+		
+		//Por si es un R40
+		campos.append(", descuentoTasaInteres, tasaInteresAnualCobrada, interesesGeneradosPeriodo, interesesGeneradosPeriodoVSM, interesCubiertoInfonavit, interesCubiertoInfonavitVSM, interesCubiertoAcreditado, interesCubiertoAcreditadoVSM, tasaInteresAplicada1_FechaInicio, tasaInteresAplicada1_FechaFin, tasaInteresAplicada2_FechaInicio, tasaInteresAplicada2_FechaFin");
+		
+		String query = "SELECT " + campos +" FROM "+getNombreTabla();
+		
+		return query;
+	}
+	
+	private IFEstadoDeCuentaGenerico llenaEstadoCuenta(Cursor cursor, IFEstadoDeCuentaGenerico estado) {
+		
+		int i = 0;
+		estado.setIdEstadoCuenta(cursor.getInt(i++));
+		estado.setBoletos(cursor.getString(i++));
+		estado.setMensajeCartera(cursor.getString(i++));
+		estado.setMensajeGeneral(cursor.getString(i++));
+		estado.setPeriodo(cursor.getString(i++));
+		estado.setTipoCuenta(cursor.getString(i++));
+		estado.setNombre(cursor.getString(i++));
+		estado.setNumeroCredito(cursor.getString(i++));
+		estado.setPagoContratado(cursor.getString(i++));
+		estado.setTasaInteresAnual(cursor.getString(i++));
+		estado.setFechaOtorgamiento(cursor.getString(i++));
+		estado.setNumMensualidadesVencidas(cursor.getString(i++));
+		estado.setNivelCumplimientoPago(cursor.getString(i++));
+		estado.setMontoVencido(cursor.getString(i++));
+		estado.setSaldoAnterior(cursor.getString(i++));
+		estado.setSaldoAnteriorVSM(cursor.getString(i++));
+		estado.setAjustePeriodosAnteriores(cursor.getString(i++));
+		estado.setAjustePeriodosAnterioresVSM(cursor.getString(i++));
+		estado.setSaldoAjustado(cursor.getString(i++));
+		estado.setSaldoAjustadoVSM(cursor.getString(i++));
+		estado.setInteresesPeriodo(cursor.getString(i++));
+		estado.setInteresesPeriodoVSM(cursor.getString(i++));
+		estado.setComisionesYOtrosCargos(cursor.getString(i++));
+		estado.setComisionesYOtrosCargosVSM(cursor.getString(i++));
+		estado.setUltimoPago(cursor.getString(i++));
+		estado.setUltimoPagoVSM(cursor.getString(i++));
+		estado.setTraspasosYOtrosAbonos(cursor.getString(i++));
+		estado.setTraspasosYOtrosAbonosVSM(cursor.getString(i++));
+		
+		estado.setSaldoActual(cursor.getString(i++));
+		estado.setSaldoActualVSM(cursor.getString(i++));
+		
+		if(estado instanceof IFREANormal){
+			((IFREANormal)estado).setLineaCaptura(cursor.getString(i++));
+			i+=2;
+		}
+		
+		if (estado instanceof IFROANormal){
+			i++;
+			((IFROANormal)estado).setpagoDeTuPatron(cursor.getString(i++));
+			((IFROANormal)estado).setPagoDeTuPatronVSM(cursor.getString(i++));
+		}
+		
+		//Reestructura
+		if(IFReestructuraGenerico.class.isAssignableFrom(estado.getClass())){
+			
+			((IFReestructuraGenerico)estado).setUltimoPagoInfonavit(cursor.getString(i++));
+			((IFReestructuraGenerico)estado).setUltimoPagoInfonavitVSM(cursor.getString(i++));
+			((IFReestructuraGenerico)estado).setSaldoACargoAcreditado(cursor.getString(i++));
+			((IFReestructuraGenerico)estado).setSaldoACargoAcreditadoVSM(cursor.getString(i++));
+			((IFReestructuraGenerico)estado).setSaldoACargoInfonavit(cursor.getString(i++));
+			((IFReestructuraGenerico)estado).setSaldoACargoInfonavitVSM(cursor.getString(i++));
+			((IFReestructuraGenerico)estado).setSaldoActualReestructura(cursor.getString(i++));
+			((IFReestructuraGenerico)estado).setSaldoActualReestructuraVSM(cursor.getString(i++));
+			
+		}
+		
+		//R40
+		if(IFR40Generico.class.isAssignableFrom(estado.getClass())){
+			i=41;
+			((IFR40Generico)estado).setDescuentoTasaInteres(cursor.getString(i++));
+			((IFR40Generico)estado).setTasaInteresAnualCobrada(cursor.getString(i++));
+			((IFR40Generico)estado).setInteresesGeneradosEnPeriodo(cursor.getString(i++));
+			((IFR40Generico)estado).setInteresesCubiertosInfonavit(cursor.getString(i++));
+			((IFR40Generico)estado).setInteresesCubiertosInfonavitVSM(cursor.getString(i++));
+			((IFR40Generico)estado).setInteresesCubiertosAcreditado(cursor.getString(i++));
+			((IFR40Generico)estado).setInteresesCubiertosAcreditadoVSM(cursor.getString(i++));
+			((IFR40Generico)estado).setTasaInteresInicioAplicada1(cursor.getString(i++));
+			((IFR40Generico)estado).setTasaInteresFinAplicada1(cursor.getString(i++));
+			((IFR40Generico)estado).setTasaInteresInicioAplicada2(cursor.getString(i++));
+			((IFR40Generico)estado).setTasaInteresFinAplicada2(cursor.getString(i++));
+			
+		}
+		
+		return estado;
+		
+	}
+
+	public IFEstadoDeCuentaGenerico getRegistro(){
+		
+		
+		IFEstadoDeCuentaGenerico estadoCuenta = null;
+		String query = construyeQuerySelect();
+		Cursor cursor = dataBase.rawQuery(query, null);
+		
+		if(cursor.moveToFirst()){
+			do{		
+				
+				String tipoCuenta = cursor.getString(cursor.getColumnIndex("tipoDeCuenta"));
+				
+				if(tipoCuenta.equals("01")) { 
+					estadoCuenta = new IFREANormal();
+				} else if(tipoCuenta.equals("02")) { 
+					estadoCuenta = new IFROANormal();
+				} else if(tipoCuenta.equals("03")) { 
+					estadoCuenta = new IFREAReestructura();
+				} else if(tipoCuenta.equals("04")) { 
+					estadoCuenta = new IFROAReestructura();
+				} else if(tipoCuenta.equals("07")) { 
+					estadoCuenta = new IFREAR40();
+				} else if(tipoCuenta.equals("08")) { 
+					estadoCuenta = new IFROAR40();
+				} else if(tipoCuenta.equals("09")) { 
+					estadoCuenta = new IFREAR40Reestructura();
+				} else if(tipoCuenta.equals("10")) { 
+					estadoCuenta = new IFROAR40Reestructura();
+				}
+				
+				estadoCuenta = llenaEstadoCuenta(cursor,estadoCuenta);
+
+				
+			}while(cursor.moveToNext());
+	    }
+		
+		return estadoCuenta;
+	}
+
+public void insertaRegistro(IFEstadoDeCuentaGenerico estado){
+		
+		try {
+//    	String query = "INSERT INTO " + getNombreTabla() +" (versionCatalogo, marcaActualizacion, fechaUltimaActualizacion) VALUES (\""+ control.getVersionCatalogo() +"\","+ control.getMarcaActualizacion() +",\""+ control.getFechaUltimaActualizacion() + "\")";
+			String query = construyeQueryInsert(estado);
+    	dataBase.execSQL(query);
+		} catch(Exception e) {
+			Log.e("Error en inserci—n: ", e.getMessage());
+		}
+
+	}
+	
+	private String construyeQueryInsert(IFEstadoDeCuentaGenerico estadoCuenta) {
+		
+		StringBuilder campos = new StringBuilder("idUsuario, numBoletos, mensajeCartera, mensajeGeneral, periodo, tipoDeCuenta, nombreCliente, noCredito, pagoContratado, tasaInteresAnual, fechaOtorgamiento, noDeMensualidadesVencidas, nivelCumplimientoPago, montoVencido, saldoAnterior, saldoAnteriorVSM, ajustePeriodosAnteriores, ajustePeriodosAnterioresVSM, saldoAjustado, saldoAjustadoVSM, interesesPeriodo, interesesPeriodoVSM, comisionesOtrosCargos, comisionesOtrosCargosVSM, ultimoPago, ultimoPagoVSM, traspasosOtrosAbonos, traspasosOtrosAbonosVSM, saldoActualResumen, saldoActualVSMResumen");
+		UsuarioDTO user = UsuarioDTO.getUniqueUser();
+		String strDatos = String.format("%i,\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\"",
+				user.getId(), 
+				estadoCuenta.getBoletos(), 
+				estadoCuenta.getMensajeCartera(), 
+				estadoCuenta.getMensajeGeneral(), 
+				estadoCuenta.getPeriodo(), 
+				estadoCuenta.getTipoCuenta(), 
+				estadoCuenta.getNombre(), 
+				estadoCuenta.getNumeroCredito(), 
+				estadoCuenta.getPagoContratado(), 
+				estadoCuenta.getTasaInteresAnual(), 
+				estadoCuenta.getFechaOtorgamiento(), 
+				estadoCuenta.getNumMensualidadesVencidas(), 
+				estadoCuenta.getNivelCumplimientoPago(), 
+				estadoCuenta.getMontoVencido(), 
+				estadoCuenta.getSaldoAnterior(), 
+				estadoCuenta.getSaldoAnteriorVSM(), 
+				estadoCuenta.getAjustePeriodosAnteriores(), 
+				estadoCuenta.getAjustePeriodosAnterioresVSM(),
+				estadoCuenta.getSaldoAjustado(), 
+				estadoCuenta.getSaldoAjustadoVSM(), 
+				estadoCuenta.getInteresesPeriodo(),
+				estadoCuenta.getInteresesPeriodoVSM(),
+				estadoCuenta.getComisionesYOtrosCargos(), 
+				estadoCuenta.getComisionesYOtrosCargosVSM(),
+				estadoCuenta.getUltimoPago(),
+				estadoCuenta.getUltimoPagoVSM(), 
+				estadoCuenta.getTraspasosYOtrosAbonos(), 
+				estadoCuenta.getTraspasosYOtrosAbonosVSM(), 
+				estadoCuenta.getSaldoActual(), 
+				estadoCuenta.getSaldoActualVSM());
+		
+		StringBuilder datos = new StringBuilder(strDatos);
+		
+		if (estadoCuenta instanceof IFREANormal) {
+			campos.append(", lineaDeCaptura");
+			datos.append(String.format(",\"%@\"", ((IFREANormal) estadoCuenta).getLineaCaptura()));
+		} 
+		
+		if	(estadoCuenta instanceof IFROANormal) {
+			campos.append(", pagoDeTuPatron, pagoDeTuPatronVSM");
+			datos.append(String.format(",\"%@\",\"%@\"", ((IFROANormal) estadoCuenta).getpagoDeTuPatron(), ((IFROANormal) estadoCuenta).getPagoDeTuPatronVSM()));
+		}
+		
+		if (IFReestructuraGenerico.class.isAssignableFrom(estadoCuenta.getClass())){
+			
+			campos.append(", ultimoPagoInfonavit, ultimoPagoInfonavitVSM, saldoAcargoAcreditado, saldoAcargoAcreditadoVSM, saldoAcargoInfonavit, saldoAcargoInfonavitVSM, saldoActualReestructura, saldoActualReestructuraVSM");
+			
+			datos.append(String.format(",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\"", ((IFReestructuraGenerico)estadoCuenta).getUltimoPagoInfonavit(), ((IFReestructuraGenerico)estadoCuenta).getUltimoPagoInfonavitVSM(), ((IFReestructuraGenerico)estadoCuenta).getSaldoACargoAcreditado(), ((IFReestructuraGenerico)estadoCuenta).getSaldoACargoAcreditadoVSM(), ((IFReestructuraGenerico)estadoCuenta).getSaldoACargoInfonavit(), ((IFReestructuraGenerico)estadoCuenta).getSaldoACargoInfonavitVSM(), ((IFReestructuraGenerico)estadoCuenta).getSaldoActualReestructura(), ((IFReestructuraGenerico)estadoCuenta).getSaldoActualReestructuraVSM()));
+			
+		}
+		
+		if (IFR40Generico.class.isAssignableFrom(estadoCuenta.getClass())){
+			campos.append(", descuentoTasaInteres, tasaInteresAnualCobrada, interesesGeneradosPeriodo, interesesGeneradosPeriodoVSM, interesCubiertoInfonavit, interesCubiertoInfonavitVSM, interesCubiertoAcreditado, interesCubiertoAcreditadoVSM, tasaInteresAplicada1_FechaInicio, tasaInteresAplicada1_FechaFin, tasaInteresAplicada2_FechaInicio, tasaInteresAplicada2_FechaFin");
+			
+			datos.append(String.format(",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\"", ((IFR40Generico)estadoCuenta).getDescuentoTasaInteres(), ((IFR40Generico)estadoCuenta).getTasaInteresAnualCobrada(), ((IFR40Generico)estadoCuenta).getInteresesGeneradosEnPeriodo(), ((IFR40Generico)estadoCuenta).getInteresesGeneradosEnPeriodoVSM(), [estadoCuenta performSelector:@selector(interesesCubiertosInfonavit)], [estadoCuenta performSelector:@selector(interesesCubiertosInfonavitVSM)], [estadoCuenta performSelector:@selector(interesesCubiertosAcreditado)], [estadoCuenta performSelector:@selector(interesesCubiertosAcreditadoVSM)], [estadoCuenta performSelector:@selector(tasaInteresInicioAplicada1)], [estadoCuenta performSelector:@selector(tasaInteresFinAplicada1)], [estadoCuenta performSelector:@selector(tasaInteresInicioAplicada2)], [estadoCuenta performSelector:@selector(tasaInteresFinAplicada2)]]));
+		}
+		
+		
+		String query = "INSERT INTO " + getNombreTabla() + " (" + campos + ") VALUES (" + datos + ")";
+		return query;
+	}
+
+	public void borraRegistro(long id){
+		
+		int code = dataBase.delete(getNombreTabla(),null, null);
+    	
+		Log.i("Eliminaci—n Usuario", "Code: " + code);
+//    	if(result > 0)
+//    		return true;
+//    	return false;
+	}
+}

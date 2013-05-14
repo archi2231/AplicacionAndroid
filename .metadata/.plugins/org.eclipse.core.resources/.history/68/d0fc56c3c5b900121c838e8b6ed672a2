@@ -1,0 +1,117 @@
+package com.planetmedia.infonavit.datamodel.dto;
+
+public class UsuarioDTO {
+
+	private String idUsuario;
+	private String nombreUsuario;
+	private String contrasenia;
+	private String direccion;
+	private String CCnumber;
+	private String numeroSS;
+	private String correoElectronico;
+	private String rfc;
+	private String numTelefonico;
+	private String nombrePila;
+
+	// Definici—n Singleton
+	private static UsuarioDTO usuario = null;
+
+	private UsuarioDTO() {
+	}
+
+	private synchronized static void createInstance() {
+		if (usuario == null) {
+			usuario = new UsuarioDTO();
+		}
+	}
+
+	public static UsuarioDTO getUniqueUser() {
+		createInstance();
+		return usuario;
+	}
+
+	// Definici—n Singleton
+	// public Usuario(SQLiteDatabase database) {
+	// this.database = database;
+	// }
+
+	public String getId() {
+		return idUsuario;
+	}
+
+	public void setId(String id) {
+		this.idUsuario = id;
+	}
+
+	public String getNombreUsuario() {
+		return nombreUsuario;
+	}
+
+	public void setNombreUsuario(String nombreUsuario) {
+		this.nombreUsuario = nombreUsuario;
+	}
+
+	public String getCCnumber() {
+		return CCnumber;
+	}
+
+	public void setCCnumber(String cCnumber) {
+		CCnumber = cCnumber;
+	}
+
+	public String getNumeroSS() {
+		return numeroSS;
+	}
+
+	public void setNumeroSS(String numeroSS) {
+		this.numeroSS = numeroSS;
+	}
+
+	public String getDireccion() {
+		return direccion;
+	}
+
+	public void setDireccion(String direccion) {
+		this.direccion = direccion;
+	}
+
+	public String getCorreoElectronico() {
+		return correoElectronico;
+	}
+
+	public void setCorreoElectronico(String correoElectronico) {
+		this.correoElectronico = correoElectronico;
+	}
+
+	public String getRfc() {
+		return rfc;
+	}
+
+	public void setRfc(String rfc) {
+		this.rfc = rfc;
+	}
+
+	public String getContrasenia() {
+		return contrasenia;
+	}
+
+	public void setContrasenia(String contrasenia) {
+		this.contrasenia = contrasenia;
+	}
+
+	public String getNumTelefonico() {
+		return numTelefonico;
+	}
+
+	public void setNumTelefonico(String numTelefonico) {
+		this.numTelefonico = numTelefonico;
+	}
+
+	public String getNombrePila() {
+		return nombrePila;
+	}
+
+	public void setNombrePila(String nombrePila) {
+		this.nombrePila = nombrePila;
+	}
+}

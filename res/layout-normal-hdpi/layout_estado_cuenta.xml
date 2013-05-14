@@ -1,0 +1,345 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/ScrollViewEstadoCuenta"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true" xmlns:app="http://schemas.android.com/apk/res/com.planetmedia.infonavit">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/appbody"
+        android:orientation="vertical" >
+
+        <com.planetmedia.infonavit.utils.MyTextView
+            android:id="@+id/txt_Estado_De_Cuenta"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="2dp"
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            android:shadowColor="#2a0606"
+            android:shadowDx="1"
+            android:shadowDy="1"
+            android:shadowRadius="1.5"
+            android:text="Estado De Cuenta"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="#000000"
+            android:textStyle="bold"
+            app:ttf_name="eurostile.ttf" />
+
+        <com.planetmedia.infonavit.utils.MyTextView
+            android:id="@+id/txt_Credito_Hipotecario"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:gravity="center"
+            android:shadowColor="#2a0606"
+            android:shadowDx="1"
+            android:shadowDy="1"
+            android:shadowRadius="1.5"
+            android:text="Credito Hipotecario"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="#000000"
+            app:ttf_name="eurostile.ttf" />
+
+        <com.planetmedia.infonavit.utils.MyTextView
+            android:id="@+id/txt_periodo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="11dp"
+            android:layout_marginRight="11dp"
+            android:layout_marginTop="11dp"
+            android:background="@drawable/generico_txt_over_1"
+            android:gravity="center"
+            android:padding="2dp"
+            android:text="Período del: "
+            android:textAppearance="?android:attr/textAppearance"
+            android:textColor="#000000"
+            app:ttf_name="eurostile.ttf" />
+
+        <com.planetmedia.infonavit.utils.MyTextView
+            android:id="@+id/txt_fecha_limite_pago"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="11dp"
+            android:layout_marginLeft="11dp"
+            android:layout_marginRight="11dp"
+            android:background="@drawable/generico_txt_over_3"
+            android:gravity="center"
+            android:padding="2dp"
+            android:text="Fecha límite de pago:"
+            android:textAppearance="?android:attr/textAppearance"
+            android:textColor="#000000"
+            app:ttf_name="eurostile.ttf" />
+        
+        
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="11dp"
+            android:layout_marginRight="11dp"
+            android:layout_marginTop="11dp" >
+
+            <ImageButton
+                android:id="@+id/btn_datos_credito"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/selector_row_body_pagos"
+                android:clickable="true" />
+
+            <ImageView
+                android:id="@+id/btn_expander_datos_credito"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentTop="true"
+                android:background="@drawable/selector_expande_lista_arrow" />
+
+            <com.planetmedia.infonavit.utils.MyTextView
+                android:id="@+id/txt_datos_credito"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:layout_toLeftOf="@+id/btn_expander_datos_credito"
+                android:gravity="center"
+                android:shadowColor="#2a0606"
+                android:shadowDx="1"
+                android:shadowDy="1"
+                android:shadowRadius="1.5"
+                android:text="Datos de tu credito"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textColor="#ffffff"
+                android:textStyle="bold"
+                app:ttf_name="eurostile.ttf" />
+        </RelativeLayout>
+        <LinearLayout
+            android:id="@+id/listaExpandibleDatosCredito"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="11dp"
+            android:layout_marginLeft="11dp"
+            android:layout_marginRight="11dp"
+            android:orientation="vertical" >
+        </LinearLayout>
+        
+        
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="11dp"
+            android:layout_marginRight="11dp"
+            android:layout_marginTop="11dp" >
+
+            <ImageButton
+                android:id="@+id/btn_resumen_movimientos"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/selector_row_body_pagos"
+                android:clickable="true" />
+
+            <ImageView
+                android:id="@+id/btn_expander_resumen_movimientos"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentTop="true"
+                android:background="@drawable/selector_expande_lista_arrow" />
+
+            <com.planetmedia.infonavit.utils.MyTextView
+                android:id="@+id/txt_resumen_movimientos"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:layout_toLeftOf="@+id/btn_expander_resumen_movimientos"
+                android:gravity="center"
+                android:shadowColor="#2a0606"
+                android:shadowDx="1"
+                android:shadowDy="1"
+                android:shadowRadius="1.5"
+                android:text="Resumen de movimientos"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textColor="#ffffff"
+                android:textStyle="bold"
+                app:ttf_name="eurostile.ttf" />
+        </RelativeLayout>
+        
+        <LinearLayout
+            android:id="@+id/listaExpandibleResumenMovimientos"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="11dp"
+            android:layout_marginLeft="11dp"
+            android:layout_marginRight="11dp"
+            android:orientation="vertical" >
+        </LinearLayout>
+        
+        
+        
+        <RelativeLayout
+            android:id="@+id/layoutR40"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="11dp"
+            android:layout_marginRight="11dp"
+            android:layout_marginTop="11dp" >
+
+            <ImageButton
+                android:id="@+id/btn_apoyo_interes"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/selector_row_body_pagos"
+                android:clickable="true" />
+
+            <ImageView
+                android:id="@+id/btn_expander_apoyo_interes"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentTop="true"
+                android:background="@drawable/selector_expande_lista_arrow" />
+
+            <com.planetmedia.infonavit.utils.MyTextView
+                android:id="@+id/txt_apoyo_interes"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:layout_toLeftOf="@+id/btn_expander_apoyo_interes"
+                android:gravity="center"
+                android:shadowColor="#2a0606"
+                android:shadowDx="1"
+                android:shadowDy="1"
+                android:shadowRadius="1.5"
+                android:text="Apoyo en tasa de interés"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textColor="#ffffff"
+                android:textStyle="bold"
+                app:ttf_name="eurostile.ttf" />
+        </RelativeLayout>
+        
+        <LinearLayout
+            android:id="@+id/listaExpandibleApoyoInteres"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="11dp"
+            android:layout_marginLeft="11dp"
+            android:layout_marginRight="11dp"
+            android:orientation="vertical" >
+        </LinearLayout>
+        
+        
+                <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="11dp"
+            android:layout_marginRight="11dp"
+            android:layout_marginTop="11dp" >
+
+            <ImageButton
+                android:id="@+id/btn_aviso_importante"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/selector_row_body_pagos"
+                android:clickable="true" />
+
+            <ImageView
+                android:id="@+id/btn_expander_aviso_importante"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentTop="true"
+                android:background="@drawable/selector_expande_lista_arrow" />
+
+            <com.planetmedia.infonavit.utils.MyTextView
+                android:id="@+id/txt_aviso_importante"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:layout_toLeftOf="@+id/btn_expander_aviso_importante"
+                android:gravity="center"
+                android:shadowColor="#2a0606"
+                android:shadowDx="1"
+                android:shadowDy="1"
+                android:shadowRadius="1.5"
+                android:text="Aviso Importante"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textColor="#ffffff"
+                android:textStyle="bold"
+                app:ttf_name="eurostile.ttf" />
+        </RelativeLayout>
+        
+        <LinearLayout
+            android:id="@+id/listaExpandibleAvisoImportante"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="11dp"
+            android:layout_marginLeft="11dp"
+            android:layout_marginRight="11dp"
+            android:orientation="vertical" >
+        </LinearLayout>
+        
+        
+        <RelativeLayout
+            android:id="@+id/layoutReestructura"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="11dp"
+            android:layout_marginRight="11dp"
+            android:layout_marginTop="11dp" >
+
+            <ImageButton
+                android:id="@+id/btn_datos_reestructura"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/selector_row_body_pagos"
+                android:clickable="true" />
+
+            <ImageView
+                android:id="@+id/btn_expander_datos_reestructura"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentTop="true"
+                android:background="@drawable/selector_expande_lista_arrow" />
+
+            <com.planetmedia.infonavit.utils.MyTextView
+                android:id="@+id/txt_datos_reestructura"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:layout_toLeftOf="@+id/btn_expander_datos_reestructura"
+                android:gravity="center"
+                android:shadowColor="#2a0606"
+                android:shadowDx="1"
+                android:shadowDy="1"
+                android:shadowRadius="1.5"
+                android:text="Datos de la Reestructura"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textColor="#ffffff"
+                android:textStyle="bold"
+                app:ttf_name="eurostile.ttf" />
+        </RelativeLayout>
+        
+        <LinearLayout
+            android:id="@+id/listaExpandibleDatosReestructura"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="11dp"
+            android:layout_marginLeft="11dp"
+            android:layout_marginRight="11dp"
+            android:orientation="vertical" >
+        </LinearLayout>
+        
+        
+        
+                
+        
+    </LinearLayout>
+
+</ScrollView>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content" xmlns:app="http://schemas.android.com/apk/res/com.planetmedia.infonavit">
+
+   <com.planetmedia.infonavit.utils.ButtonArrow
+                android:id="@+id/btn_pagos_banco_azteca"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/selector_row_internal"
+                android:clickable="true" />
+
+   <ImageButton
+       android:id="@+id/arrow_expander2"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:layout_alignParentRight="true"
+       android:layout_centerVertical="true"
+       android:layout_marginRight="24dp"
+       android:background="@drawable/selector_expander_lista_arrow2" />
+   
+   
+   <com.planetmedia.infonavit.utils.MyTextView
+        android:id="@+id/txt_row_child_key"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="11dp"
+        android:text="key"
+        android:textAppearance="?android:attr/textAppearance"
+        android:textColor="#000000"
+        app:ttf_name="eurostile.ttf" />
+
+
+</RelativeLayout>

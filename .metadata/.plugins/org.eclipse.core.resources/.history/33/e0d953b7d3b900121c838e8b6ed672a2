@@ -1,0 +1,98 @@
+package com.planetmedia.infonavit.datamodel.dao;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import android.content.ContentValues;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
+import android.util.Log;
+
+import com.planetmedia.infonavit.datamodel.dto.UsuarioDTO;
+
+public class UsuarioDAO extends GenericDAO {
+
+	public UsuarioDAO() {
+		super();
+		this.setNombreTabla("USUARIO");
+	}
+	
+	public List<UsuarioDTO> getRegistros(){
+		
+		List<UsuarioDTO> lista = new ArrayList<UsuarioDTO>();
+		
+		Cursor cur = dataBase.rawQuery("SELECT * FROM " + getNombreTabla(), null);
+		
+	    if(cur.moveToFirst()){
+			do{
+				
+				UsuarioDTO user = UsuarioDTO.getUniqueUser();
+				user.setId(cur.getInt(cur.getColumnIndex("idUsuario")));
+				user.setNombreUsuario(cur.getString(cur.getColumnIndex("nombreUsuario")));
+				user.setNombrePila(cur.getString(cur.getColumnIndex("nombrePila")));
+				user.setContrasenia(cur.getString(cur.getColumnIndex("contrasenia")));
+				user.setDireccion(cur.getString(cur.getColumnIndex("direccion")));
+				user.setCCnumber(cur.getString(cur.getColumnIndex("CCnumber")));
+				user.setNumeroSS(cur.getString(cur.getColumnIndex("numeroSS")));
+				user.setCorreoElectronico(cur.getString(cur.getColumnIndex("correoElectronico")));
+				user.setRfc(cur.getString(cur.getColumnIndex("rfc")));
+				user.setNumTelefonico(cur.getString(cur.getColumnIndex("numTelefonico")));
+				
+				lista.add(user);
+				
+			}while(cur.moveToNext());
+	    }
+		
+		return lista;
+		
+	}
+	
+	public UsuarioDTO getRegistro(){
+		
+		
+		UsuarioDTO usuario = UsuarioDTO.getUniqueUser();
+		
+		Cursor cursor = dataBase.rawQuery("SELECT * FROM" + getNombreTabla(), null);
+		
+		if(cursor.moveToFirst()){
+			do{		
+				
+				usuario.setId(cursor.getInt(cursor.getColumnIndex("idUsuario")));
+				usuario.setNombreUsuario(cursor.getString(cursor.getColumnIndex("nombreUsuario")));
+				usuario.setNombrePila(cursor.getString(cursor.getColumnIndex("nombrePila")));
+				usuario.setContrasenia(cursor.getString(cursor.getColumnIndex("contrasenia")));
+				usuario.setDireccion(cursor.getString(cursor.getColumnIndex("direccion")));
+				usuario.setCCnumber(cursor.getString(cursor.getColumnIndex("CCnumber")));
+				usuario.setNumeroSS(cursor.getString(cursor.getColumnIndex("numeroSS")));
+				usuario.setCorreoElectronico(cursor.getString(cursor.getColumnIndex("correoElectronico")));
+				usuario.setRfc(cursor.getString(cursor.getColumnIndex("rfc")));
+				usuario.setNumTelefonico(cursor.getString(cursor.getColumnIndex("numTelefonico")));
+				
+			}while(cursor.moveToNext());
+	    }
+		
+		return usuario;
+	}
+
+//	public void insertaRegistro(UsuarioDTO usuario){
+//		
+//		try{
+//		String query = String.format("INSERT INTO %s (nombreUsuario, CCnumber, numeroSS, contrasenia, nombrePila) VALUES (%s,%s,%s,%s,%s)", getNombreTabla(), usuario.getNombreUsuario(),usuario.getCCnumber(),usuario.getNumeroSS(),usuario.getContrasenia(),usuario.getNombrePila());
+//		
+//		dataBase.execSQL(query);
+//		} catch (Exception e){
+//			Log.e("Error en inserci—n: ", e.getMessage());
+//		}
+//	    
+//	}
+	
+	public void borraRegistro(long id){
+		
+		int code = dataBase.delete(getNombreTabla(),null, null);
+    	
+		Log.i("Eliminaci—n Usuario", "Code: " + code);
+//    	if(result > 0)
+//    		return true;
+//    	return false;
+	}
+}

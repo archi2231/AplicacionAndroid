@@ -1,0 +1,81 @@
+package com.planetmedia.infonavit.datamodel.dao;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import android.database.Cursor;
+import android.util.Log;
+
+import com.planetmedia.infonavit.datamodel.dto.ControlCatalogoDTO;
+
+public class ControlCatalogoDAO extends GenericDAO {
+
+	public ControlCatalogoDAO() {
+		super();
+		this.setNombreTabla("CONTROL_CATALOGO");
+	}
+
+	public List<ControlCatalogoDTO> getRegistros(){
+		
+		List<ControlCatalogoDTO> lista = new ArrayList<ControlCatalogoDTO>();
+		
+		Cursor cursor = dataBase.rawQuery("SELECT * FROM " + getNombreTabla(), null);
+	    if(cursor.moveToFirst()){
+			do{
+				
+				ControlCatalogoDTO control = new ControlCatalogoDTO();
+				
+				control.setIdControlCatalogo(cursor.getString(cursor.getColumnIndex("idControlCatalogo")));
+				control.setVersionCatalogo(cursor.getString(cursor.getColumnIndex("versionCatalogo")));
+				control.setMarcaActualizacion(cursor.getString(cursor.getColumnIndex("marcaActualizacion")));
+				control.setFechaUltimaActualizacion(cursor.getString(cursor.getColumnIndex("fechaUltimaActualizacion")));
+				
+				lista.add(control);
+				control = null;
+				
+			}while(cursor.moveToNext());
+	    }
+		
+		return lista;
+		
+	}
+	
+	public ControlCatalogoDTO getRegistro(){
+
+		ControlCatalogoDTO control = null;
+		
+		Cursor cursor = dataBase.rawQuery("SELECT * FROM " + getNombreTabla(), null);
+		
+		if(cursor.moveToFirst()){
+			do{		
+				control = new ControlCatalogoDTO();
+				
+				control.setIdControlCatalogo(cursor.getString(cursor.getColumnIndex("idControlCatalogo")));
+				control.setVersionCatalogo(cursor.getString(cursor.getColumnIndex("versionCatalogo")));
+				control.setMarcaActualizacion(cursor.getString(cursor.getColumnIndex("marcaActualizacion")));
+				control.setFechaUltimaActualizacion(cursor.getString(cursor.getColumnIndex("fechaUltimaActualizacion")));
+				
+			}while(cursor.moveToNext());
+	    }
+		
+		return control;
+	}
+
+	public void insertaRegistro(ControlCatalogoDTO control){
+		
+		try {
+    	String query = "INSERT INTO " + getNombreTabla() +" (versionCatalogo, marcaActualizacion, fechaUltimaActualizacion) VALUES (\""+ control.getVersionCatalogo() +"\","+ control.getMarcaActualizacion() +",\""+ control.getFechaUltimaActualizacion() + "\")";
+    	dataBase.execSQL(query);
+		} catch(Exception e) {
+			Log.e("Error en inserci—n: ", e.getMessage());
+		}
+
+	}
+	
+	public void borraRegistro(long id){
+		
+		int code = dataBase.delete(getNombreTabla(),null, null);
+    	
+		Log.i("Eliminaci—n Control Catalogo", "Code: " + code);
+	}
+}

@@ -1,0 +1,237 @@
+package com.planetmedia.infonavit;
+
+import java.io.InputStream;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
+import java.util.Locale;
+
+import android.app.Activity;
+import android.content.Context;
+import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
+import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.Window;
+import android.view.WindowManager;
+import android.view.animation.Animation;
+import android.view.animation.Animation.AnimationListener;
+import android.view.animation.AnimationSet;
+import android.view.animation.AnimationUtils;
+import android.widget.ImageView;
+
+import com.planetmedia.infonavit.WSConsume.IFParentRequest;
+import com.planetmedia.infonavit.WSConsume.IFParentResponse;
+import com.planetmedia.infonavit.WSConsume.IFserviceManager;
+import com.planetmedia.infonavit.datamodel.DBOManager;
+import com.planetmedia.infonavit.datamodel.dao.ControlCatalogoDAO;
+import com.planetmedia.infonavit.datamodel.dto.ControlCatalogoDTO;
+
+public class MainActivity extends Activity {
+
+	public final int REQ_INICIO_SESSION = 0;
+	public final int REQ_REGISTRO_LOGIN = 1;
+	public final int REQ_ESTADO_CUENTA = 3;
+	public final int REQ_OPCIONES_USUARIO = 4;
+
+	public static SQLiteDatabase dbInfonavit;
+	public static Context infApp;
+
+	private AnimationSet animationSet;
+	private ImageView splash;
+
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+
+		requestWindowFeature(Window.FEATURE_NO_TITLE);
+		this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+				WindowManager.LayoutParams.FLAG_FULLSCREEN);
+
+		setContentView(R.layout.activity_main);
+
+		// splash = (ImageView) findViewById(R.id.splash);
+		// configurarAnimacion();
+		// splash.startAnimation(animationSet);
+
+		infApp = this;
+		dbInfonavit = new DBOManager(this).getDB();
+
+//		Intent intent = new Intent(MainActivity.this, InicioLoginActivity.class);
+//		startActivity(intent);
+		
+		Intent estadoCuenta = new Intent(MainActivity.this,EstadoCuentaActivity.class);
+		startActivity(estadoCuenta);
+
+		consultaServicioVersionCatalogo();
+	}
+
+	private void consultaServicioVersionCatalogo() {
+		new Thread() {
+			public void run() {
+				try {
+
+					IFParentRequest request = new IFParentRequest();
+
+					request.generaRequestCatalogoVersion("001");
+
+					IFserviceManager manager = new IFserviceManager();
+					InputStream message = manager.execWebService(request);
+
+					IFParentResponse response = new IFParentResponse(message);
+
+					String versionCatalogo = response.obtenOficinasCatalogoVersion();
+					if(!versionCatalogo.equals("")){//Si hubo Respuesta del WS
+						ControlCatalogoDAO dao = new ControlCatalogoDAO();
+						ControlCatalogoDTO controlDTO = dao.getRegistro();
+						
+						if(controlDTO != null && !controlDTO.getVersionCatalogo().equals(versionCatalogo)){
+							controlDTO.setMarcaActualizacion("1");
+							controlDTO.setVersionCatalogo(versionCatalogo);
+							
+							Calendar calendario = GregorianCalendar.getInstance();
+							Date date = calendario.getTime();
+							SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy", new Locale("es", "MX"));
+							controlDTO.setFechaUltimaActualizacion(dateFormat.format(date));
+							
+							dao.borraRegistro(0);
+							dao.insertaRegistro(controlDTO);
+						} else if (controlDTO == null){
+							controlDTO = new ControlCatalogoDTO();
+							controlDTO.setMarcaActualizacion("1");
+							controlDTO.setVersionCatalogo("0");
+							
+							Calendar calendario = GregorianCalendar.getInstance();
+							Date date = calendario.getTime();
+							SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy", new Locale("es", "MX"));
+							controlDTO.setFechaUltimaActualizacion(dateFormat.format(date));
+							
+							dao.borraRegistro(0);
+							dao.insertaRegistro(controlDTO);
+						}
+					} else {//No hubo respuesta del WS
+						ControlCatalogoDAO dao = new ControlCatalogoDAO();
+						ControlCatalogoDTO controlDTO = dao.getRegistro();
+						if(controlDTO == null){
+							controlDTO = new ControlCatalogoDTO();
+							controlDTO.setMarcaActualizacion("1");
+							
+							Calendar calendario = GregorianCalendar.getInstance();
+							Date date = calendario.getTime();
+							SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy", new Locale("es", "MX"));
+							controlDTO.setFechaUltimaActualizacion(dateFormat.format(date));
+							
+							dao.borraRegistro(0);
+							dao.insertaRegistro(controlDTO);
+						}
+					}
+					
+
+				} catch (Exception e) {
+					e.printStackTrace();
+
+				} finally {
+
+				}
+			}
+		}.start();
+	}
+
+	public void configurarAnimacion() {
+
+		animationSet = new AnimationSet(true);
+
+		Animation fadein = AnimationUtils.loadAnimation(this, R.anim.fadein);
+		fadein.setDuration(3000);
+		Animation fadeout = AnimationUtils.loadAnimation(this, R.anim.fadeout);
+		fadeout.setDuration(2000);
+		fadeout.setStartOffset(2000);
+		animationSet.addAnimation(fadein);
+		animationSet.addAnimation(fadeout);
+		animationSet.setStartOffset(1000);
+		animationSet.setAnimationListener(new AnimationListener() {
+
+			@Override
+			public void onAnimationEnd(Animation animation) {
+				Intent intent = new Intent(MainActivity.this,
+						InicioLoginActivity.class);
+				startActivity(intent);
+				finish();
+			}
+
+			@Override
+			public void onAnimationRepeat(Animation animation) {
+
+			}
+
+			@Override
+			public void onAnimationStart(Animation animation) {
+				// splash = (ImageView) findViewById(R.id.splash);
+			}
+		});
+	}
+
+	@Override
+	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+		super.onActivityResult(requestCode, resultCode, data);
+
+		/*
+		 * Log.d("result code", ""+resultCode); Log.d("request code",
+		 * ""+requestCode);
+		 * 
+		 * switch(requestCode){ case REQ_INICIO_SESSION: if (resultCode ==
+		 * Activity.RESULT_OK){ String title =
+		 * data.getStringExtra("nombreUsuario"); Log.d("titulo", ""+title);
+		 * this.setTitle(title); TextView txtUser =
+		 * (TextView)findViewById(R.id.lbl_estado_cuenta);
+		 * txtUser.setText("Bienvenido: " + title); } break; case
+		 * REQ_REGISTRO_LOGIN: if (resultCode == Activity.RESULT_OK){ String
+		 * title = data.getStringExtra("nombreUsuario"); Log.d("titulo",
+		 * ""+title); this.setTitle(title); TextView txtUser =
+		 * (TextView)findViewById(R.id.lbl_estado_cuenta);
+		 * txtUser.setText("Bienvenido: " + title); } break; default: break; }
+		 */
+	}
+
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		// Inflate the menu; this adds items to the action bar if it is present.
+		getMenuInflater().inflate(R.menu.activity_main, menu);
+		return true;
+	}
+
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		// Handle item selection
+		switch (item.getItemId()) {
+		case R.id.menu_settings:
+			Intent intentOpcionesUsuario = new Intent(MainActivity.this,
+					OpcionesUsuarioActivity.class);
+			startActivityForResult(intentOpcionesUsuario, REQ_OPCIONES_USUARIO);
+			return true;
+		default:
+			return super.onOptionsItemSelected(item);
+		}
+	}
+
+	@Override
+	protected void onRestoreInstanceState(Bundle savedInstanceState) {
+		super.onRestoreInstanceState(savedInstanceState);
+	}
+
+	@Override
+	protected void onResume() {
+		super.onResume();
+	}
+
+	@Override
+	protected void onRestart() {
+		super.onRestart();
+	}
+
+	public static String getAppString(int id) {
+		return infApp.getString(id);
+	}
+}

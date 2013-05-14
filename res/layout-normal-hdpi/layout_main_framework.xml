@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/row_body_item"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/galleryOne"
+        android:orientation="vertical" >
+
+        <FrameLayout
+            android:id="@+id/frameslayout1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
+
+        </FrameLayout>
+
+    </LinearLayout>
+
+    <com.planetmedia.infonavit.fragments.InfiniteGallery
+        android:id="@+id/galleryOne"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true" />
+
+</RelativeLayout>
